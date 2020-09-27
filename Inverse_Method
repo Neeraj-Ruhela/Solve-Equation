@@ -1,0 +1,30 @@
+# given equations are: 6x+2y−5z=13  ,   x+3y−2z=13    ,   x+5y−3z=26
+# First we willconvert equations into matrix form
+# Then we will find solution using inverse method.
+
+import numpy as np
+# creating array with co-efficients of x,y,z
+a= np.array([[6,2,-5],[3,3,-2],[7,5,-3]])
+b=np.array([ [13],[13],[26]])
+
+
+
+# checking the determinent of a to see if "a" has an inverse or not 
+d=np.linalg.det(a)
+
+#print the deerminent of a, 
+print("the value of determinent of a is:", d)
+    
+    
+# as the value of determinent is not zero so "a" will be having inverse, hence finding inverse of "a"
+a_inv= np.linalg.inv(a)
+
+#finding the solution using matrix multiplication of inverese of a and b
+sol=np.matmul(a_inv,b)
+
+[x,y,z] = sol
+
+#printing the solution
+print("The value of x is : " , x)
+print("The value of y is : " , y)
+print("The value of z is : " , z)
